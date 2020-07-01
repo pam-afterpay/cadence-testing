@@ -73,7 +73,7 @@ public class HelloActivity {
 
   public static void main(String[] args) {
     // Start a worker that hosts both workflow and activity implementations.
-    Worker.Factory factory = new Worker.Factory(DOMAIN);
+    Worker.Factory factory = new Worker.Factory("cadence-frontend.cadence.svc.cluster.local", 7933, DOMAIN);
     Worker worker = factory.newWorker(TASK_LIST);
     // Workflows are stateful. So you need a type to create instances.
     worker.registerWorkflowImplementationTypes(GreetingWorkflowImpl.class);
